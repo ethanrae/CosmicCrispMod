@@ -83,7 +83,7 @@
     {
       "Action": "Load",
       "Target": "eCHOMP.CosmicCrisp/SeedTexture",
-      "FromFile": "assets/{{ArtStyle}}/seeds.png"
+      "FromFile": "assets/{{ArtStyle}}/sapling.png"
     },
     {
       "Action": "Load",

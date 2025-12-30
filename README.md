@@ -9,8 +9,9 @@ It is worth a fortune when the market demands it in the Fall, but nearly worthle
 This mod produces zero asset bloat. All textures are procedurally generated on your machine when you install the mod.
 
 **How to Generate Art:**
-1. Run `python generate_assets.py`
-2. Edit `config.json` to select your style:
+1. `pip install Pillow` (Required for art generation)
+2. Run `python generate_assets.py`
+3. Edit `config.json` to select your style:
 
 | Style | Description |
 | :--- | :--- |
@@ -18,13 +19,11 @@ This mod produces zero asset bloat. All textures are procedurally generated on y
 | **Genome** | Cute, plump shape with bold black outlines and flat coloring. |
 | **Classic** | Traditional flat, vanilla-style colors matching the base game. |
 
-*Note: You can switch styles at any time in the Generic Mod Config Menu.*
-
 ## Features
-* **New Crop:** Cosmic Crisp Seeds (Buy at Pierre's in Fall).
+* **New Tree:** Cosmic Crisp Sapling (Buy at Pierre's in Fall for 2000g).
 * **Dynamic Pricing:** * **Fall:** 500g (High Demand)
-    * **Spring/Summer/Winter:** 2g (Market Crash)
-* **Growth:** Takes 10 days to mature.
+  * **Spring/Summer/Winter:** 2g (Market Crash)
+* **Growth:** Takes 28 days to mature (standard Fruit Tree).
 
 ## Requirements
 * [Stardew Valley](https://www.stardewvalley.net/) (v1.6+)
@@ -35,53 +34,36 @@ This mod produces zero asset bloat. All textures are procedurally generated on y
 
 ## Developer Setup (For Contributors)
 
-If you want to edit the mod and verify changes instantly without copying files back and forth, follow these steps.
-
 ### 1. Clone the Repo
-
     git clone https://github.com/YOUR_USERNAME/CosmicCrispMod.git
     cd CosmicCrispMod
 
 ### 2. Link to Game
-We have included a Python script to automatically link this folder to your Game Mods folder. This works on **Windows, Mac, and Linux**.
-
     python3 setup_link.py
-
-*Follow the on-screen prompts. Once finished, any change you make in this code folder is instantly applied to the game (restart required for JSON logic changes).*
+*Follow the on-screen prompts.*
 
 ---
 
 ## Testing & Debug Strategy
 
-You do not need to play through 28 days to test this mod. Use the SMAPI Console (the black window that opens with the game).
-
 ### 1. Verify Shop & Growth
 Walk into Pierre's General Store.
+debug season fall
 
-    debug season fall
-
-* **Check:** Pierre should now sell "Cosmic Crisp Seeds" for 100g.
-* **Action:** Buy one and plant it.
-* **Fast Forward:** Hover over the planted crop and type:
-
+* **Check:** Pierre should now sell "Cosmic Crisp Sapling" for 2000g.
+* **Action:** Buy one and plant it (requires 3x3 clear space).
+* **Fast Forward:** Hover over the sapling and type:
   debug grow
+  *(Repeat ~4 times until it looks like a full tree).*
 
-*(Repeat until harvestable)*.
-
-### 2. Verify Price Logic
-Harvest the apple and keep it in your inventory.
-
-**Test Crash Price (Out of Season)**
-
-    debug season spring
-
-* **Check:** Hover over the apple. It should sell for **2g**.
-
-**Test Boom Price (In Season)**
-
+### 2. Verify Harvest
     debug season fall
+* **Check:** The tree should have an apple. Shake it to harvest.
+* **Check Price:** The apple should sell for **500g**.
 
-* **Check:** Hover over the apple. It should sell for **500g**.
+### 3. Verify Crash Price
+    debug season spring
+* **Check Price:** The apple should now sell for **2g**.
 
 ---
 

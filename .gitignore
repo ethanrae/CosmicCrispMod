@@ -1,0 +1,13 @@
+# IntelliJ specific files (Do not share these)
+.idea/
+*.iml
+out/
+cmake-build-*/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Modding specific (Optional, but good practice)
+# If you ever zip your mod for release, ignore the zip in the repo
+*.zip

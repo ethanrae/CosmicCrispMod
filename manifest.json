@@ -1,0 +1,11 @@
+{
+  "Name": "Cosmic Crisp Apples",
+  "Author": "Ethan",
+  "Version": "1.0.0",
+  "Description": "Adds Cosmic Crisp apples. Expensive in Fall, cheap otherwise.",
+  "UniqueID": "Ethan.CosmicCrisp",
+  "UpdateKeys": [],
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  }
+}

@@ -1,10 +1,12 @@
 import os
-import sys
 import platform
 import subprocess
+import sys
 
 # --- CONFIGURATION ---
 MOD_NAME = "CosmicCrispMod"
+
+
 # ---------------------
 
 def get_default_mods_path():
@@ -15,12 +17,14 @@ def get_default_mods_path():
     if system == "Windows":
         # Common Steam path for Windows
         return r"C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods"
-    elif system == "Darwin": # macOS
-        return os.path.join(home, "Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods")
+    elif system == "Darwin":  # macOS
+        return os.path.join(home,
+                            "Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS/Mods")
     elif system == "Linux":
         # Common Steam path for Linux (Proton/Native)
         return os.path.join(home, ".local/share/Steam/steamapps/common/Stardew Valley/Mods")
     return None
+
 
 def create_symlink(source, target):
     """Creates a symbolic link in a cross-platform way."""
@@ -48,6 +52,7 @@ def create_symlink(source, target):
         if platform.system() == "Windows":
             print("Note: On Windows, you may need to run this script as Administrator.")
 
+
 def main():
     print(f"--- {MOD_NAME} Dev Setup ---")
 
@@ -73,6 +78,7 @@ def main():
     # 3. Create the Link
     full_target_path = os.path.join(mods_dir, MOD_NAME)
     create_symlink(source_dir, full_target_path)
+
 
 if __name__ == "__main__":
     main()

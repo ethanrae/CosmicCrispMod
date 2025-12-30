@@ -36,7 +36,6 @@
         }
       }
     },
-
     // 2. DEFINE THE FRUIT TREE BEHAVIOR
     {
       "Action": "EditData",
@@ -44,7 +43,9 @@
       "Entries": {
         "eCHOMP.CosmicCrisp_Sapling": {
           "DisplayName": "Cosmic Crisp Tree",
-          "Seasons": [ "fall" ],
+          "Seasons": [
+            "fall"
+          ],
           "Fruit": [
             {
               "Id": "eCHOMP.CosmicCrisp_Fruit",
@@ -56,7 +57,6 @@
         }
       }
     },
-
     // 3. ADD TO PIERRE'S SHOP
     {
       "Action": "EditData",
@@ -73,7 +73,6 @@
         }
       }
     },
-
     // 4. LOAD TEXTURES DYNAMICALLY
     {
       "Action": "Load",
@@ -90,18 +89,20 @@
       "Target": "eCHOMP.CosmicCrisp/TreeTexture",
       "FromFile": "assets/{{ArtStyle}}/tree.png"
     },
-
     // 5. PRICE LOGIC (Market Crash/Boom)
     {
       "LogName": "Price Hike for Fall",
       "Action": "EditData",
       "Target": "Data/Objects",
-      "When": { "Season": "Fall" },
+      "When": {
+        "Season": "Fall"
+      },
       "Entries": {
-        "eCHOMP.CosmicCrisp_Fruit": { "Price": 500 }
+        "eCHOMP.CosmicCrisp_Fruit": {
+          "Price": 500
+        }
       }
     },
-
     // 6. VILLAGER LOVE
     {
       "Action": "EditData",
@@ -109,7 +110,11 @@
       "TextOperations": [
         {
           "Operation": "Append",
-          "Target": [ "Fields", "Universal_Love", 1 ],
+          "Target": [
+            "Fields",
+            "Universal_Love",
+            1
+          ],
           "Value": " eCHOMP.CosmicCrisp_Fruit"
         }
       ]

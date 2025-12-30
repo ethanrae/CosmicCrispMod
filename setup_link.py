@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 # --- CONFIGURATION ---
-MOD_NAME = "CosmicCrispMod"
+MOD_NAME = "eCHOMP_CosmicCrisp"
 
 
 # ---------------------

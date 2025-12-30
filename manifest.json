@@ -1,9 +1,9 @@
 {
-  "Name": "Cosmic Crisp Apples",
-  "Author": "Ethan",
+  "Name": "Cosmic Crisp Apple",
+  "Author": "eCHOMP",
   "Version": "1.0.0",
-  "Description": "Adds Cosmic Crisp apples. Expensive in Fall, cheap otherwise.",
-  "UniqueID": "Ethan.CosmicCrisp",
+  "Description": "Adds the genetically engineered Cosmic Crisp apple tree to the game.",
+  "UniqueID": "eCHOMP.CosmicCrispMod",
   "UpdateKeys": [],
   "ContentPackFor": {
     "UniqueID": "Pathoschild.ContentPatcher"

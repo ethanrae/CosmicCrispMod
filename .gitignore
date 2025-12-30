@@ -11,3 +11,10 @@ Thumbs.db
 # Modding specific (Optional, but good practice)
 # If you ever zip your mod for release, ignore the zip in the repo
 *.zip
+
+# Ignore all generated assets
+assets/**/*.png
+assets/**/*.gif
+
+# Keep the folder structure (optional, but good practice)
+!assets/**/.gitkeep

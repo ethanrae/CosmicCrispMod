@@ -1,54 +1,63 @@
 {
   "Format": "2.0.0",
+  "ConfigSchema": {
+    "ArtStyle": {
+      "AllowValues": "Cosmic, Genome, Classic",
+      "Default": "Cosmic",
+      "Description": "Choose the art style: 'Cosmic' (Realistic), 'Genome' (Cute/Black Outline), or 'Classic' (Vanilla)."
+    }
+  },
   "Changes": [
+    // 1. DEFINE THE OBJECTS (Fruit and Sapling)
     {
       "Action": "EditData",
       "Target": "Data/Objects",
       "Entries": {
-        "Ethan.CosmicCrisp_Fruit": {
+        "eCHOMP.CosmicCrisp_Fruit": {
           "Name": "Cosmic Crisp Apple",
           "DisplayName": "Cosmic Crisp Apple",
-          "Description": "Engineered for shelf life. The market goes crazy for these in the Fall.",
+          "Description": "Engineered for shelf life. A modern marvel.",
           "Type": "Basic",
           "Category": -79,
           "Price": 2,
-          "Texture": "Ethan.CosmicCrisp/FruitTexture",
+          "Texture": "eCHOMP.CosmicCrisp/FruitTexture",
           "SpriteIndex": 0,
           "Edibility": 20
         },
-        "Ethan.CosmicCrisp_Seeds": {
-          "Name": "Cosmic Crisp Seeds",
-          "DisplayName": "Cosmic Crisp Seeds",
-          "Description": "Plant in Fall. Takes 10 days.",
-          "Type": "Seeds",
+        "eCHOMP.CosmicCrisp_Sapling": {
+          "Name": "Cosmic Crisp Sapling",
+          "DisplayName": "Cosmic Crisp Sapling",
+          "Description": "Takes 28 days to produce a mature Cosmic Crisp tree. Bears fruit in the fall.",
+          "Type": "Basic",
           "Category": -74,
-          "Price": 100,
-          "Texture": "Ethan.CosmicCrisp/SeedTexture",
+          "Price": 2000,
+          "Texture": "eCHOMP.CosmicCrisp/SeedTexture",
           "SpriteIndex": 0
         }
       }
     },
+
+    // 2. DEFINE THE FRUIT TREE BEHAVIOR
     {
       "Action": "EditData",
-      "Target": "Data/Crops",
+      "Target": "Data/FruitTrees",
       "Entries": {
-        "Ethan.CosmicCrisp_Seeds": {
-          "Seasons": [
-            "fall"
+        "eCHOMP.CosmicCrisp_Sapling": {
+          "DisplayName": "Cosmic Crisp Tree",
+          "Seasons": [ "fall" ],
+          "Fruit": [
+            {
+              "Id": "eCHOMP.CosmicCrisp_Fruit",
+              "Chance": 1.0
+            }
           ],
-          "DaysInPhase": [
-            2,
-            2,
-            2,
-            2,
-            2
-          ],
-          "HarvestItemId": "Ethan.CosmicCrisp_Fruit",
-          "RegrowDays": -1,
-          "IsRaised": false
+          "Texture": "eCHOMP.CosmicCrisp/TreeTexture",
+          "TextureSpriteRow": 0
         }
       }
     },
+
+    // 3. ADD TO PIERRE'S SHOP
     {
       "Action": "EditData",
       "Target": "Data/Shops",
@@ -56,36 +65,54 @@
         "SeedShop": {
           "Items": [
             {
-              "Id": "Ethan.CosmicCrisp_Seeds",
-              "ItemId": "Ethan.CosmicCrisp_Seeds",
-              "Price": 100
+              "Id": "eCHOMP.CosmicCrisp_Sapling",
+              "ItemId": "eCHOMP.CosmicCrisp_Sapling",
+              "Price": 2000
             }
           ]
         }
       }
     },
+
+    // 4. LOAD TEXTURES DYNAMICALLY
     {
       "Action": "Load",
-      "Target": "Ethan.CosmicCrisp/FruitTexture",
-      "FromFile": "assets/apple.png"
+      "Target": "eCHOMP.CosmicCrisp/FruitTexture",
+      "FromFile": "assets/{{ArtStyle}}/apple.png"
     },
     {
       "Action": "Load",
-      "Target": "Ethan.CosmicCrisp/SeedTexture",
-      "FromFile": "assets/seeds.png"
+      "Target": "eCHOMP.CosmicCrisp/SeedTexture",
+      "FromFile": "assets/{{ArtStyle}}/seeds.png"
     },
+    {
+      "Action": "Load",
+      "Target": "eCHOMP.CosmicCrisp/TreeTexture",
+      "FromFile": "assets/{{ArtStyle}}/tree.png"
+    },
+
+    // 5. PRICE LOGIC (Market Crash/Boom)
     {
       "LogName": "Price Hike for Fall",
       "Action": "EditData",
       "Target": "Data/Objects",
-      "When": {
-        "Season": "Fall"
-      },
+      "When": { "Season": "Fall" },
       "Entries": {
-        "Ethan.CosmicCrisp_Fruit": {
-          "Price": 500
-        }
+        "eCHOMP.CosmicCrisp_Fruit": { "Price": 500 }
       }
+    },
+
+    // 6. VILLAGER LOVE
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "TextOperations": [
+        {
+          "Operation": "Append",
+          "Target": [ "Fields", "Universal_Love", 1 ],
+          "Value": " eCHOMP.CosmicCrisp_Fruit"
+        }
+      ]
     }
   ]
 }

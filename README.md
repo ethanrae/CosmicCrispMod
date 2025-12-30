@@ -4,9 +4,21 @@ Adds the **Cosmic Crisp Apple** to Stardew Valley.
 This is a high-tech apple variety engineered for shelf stability.
 It is worth a fortune when the market demands it in the Fall, but nearly worthless the rest of the year.
 
-| Cosmic Crisp Apple | Seed Packet |
-| :---: | :---: |
-| ![Apple](assets/apple.png) | ![Seeds](assets/seeds.png) |
+## 🎨 Art Styles & Customization
+
+This mod produces zero asset bloat. All textures are procedurally generated on your machine when you install the mod.
+
+**How to Generate Art:**
+1. Run `python generate_assets.py`
+2. Edit `config.json` to select your style:
+
+| Style | Description |
+| :--- | :--- |
+| **Cosmic** (Default) | Modern, speckled, realistic texture with deep red tones. |
+| **Genome** | Cute, plump shape with bold black outlines and flat coloring. |
+| **Classic** | Traditional flat, vanilla-style colors matching the base game. |
+
+*Note: You can switch styles at any time in the Generic Mod Config Menu.*
 
 ## Features
 * **New Crop:** Cosmic Crisp Seeds (Buy at Pierre's in Fall).

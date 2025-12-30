@@ -1,0 +1,37 @@
+name: Auto-Release Mod
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers on tags like v1.0, v1.1, etc.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install Pillow
+
+      - name: Generate Art
+        run: python generate_assets.py
+
+      - name: Create Zip Package
+        run: |
+          mkdir eCHOMP_CosmicCrisp
+          cp -r assets eCHOMP_CosmicCrisp/
+          cp content.json manifest.json config.json eCHOMP_CosmicCrisp/
+          zip -r eCHOMP_CosmicCrisp_Release.zip eCHOMP_CosmicCrisp
+
+      - name: Upload Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: eCHOMP_CosmicCrisp_Release.zip

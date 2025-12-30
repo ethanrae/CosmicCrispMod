@@ -1,33 +1,98 @@
-# Cosmic Crisp Apples (Stardew Valley Mod)
+# 🍎 Cosmic Crisp Apple (Stardew Valley Mod)
 
-Adds the **Cosmic Crisp Apple** to Stardew Valley.
-This is a high-tech apple variety engineered for shelf stability.
-It is worth a fortune when the market demands it in the Fall, but nearly worthless the rest of the year.
+![Version](https://img.shields.io/badge/version-1.0.0-blue) ![Stardew](https://img.shields.io/badge/Stardew_Valley-1.6+-green) ![License](https://img.shields.io/badge/license-MIT-orange)
 
-## 🎨 Art Styles & Customization
+**The Future of Fruit is Here.**
 
-This mod produces zero asset bloat. All textures are procedurally generated on your machine when you install the mod.
+This mod adds the **Cosmic Crisp Apple** to Stardew Valley—a high-tech, genetically engineered super-fruit designed for massive shelf-life and crispness.
 
-**How to Generate Art:**
+In-game, this plays out as a high-risk, high-reward investment. The market for these "designer apples" is volatile: they are worth a fortune during the peak demand of **Fall**, but the market crashes to near-zero value for the rest of the year.
 
-1. `pip install Pillow` (Required for art generation)
-2. Run `python generate_assets.py`
-3. Edit `config.json` to select your style:
+---
 
-| Style                | Description                                                    |
-|:---------------------|:---------------------------------------------------------------|
-| **Cosmic** (Default) | Modern, speckled, realistic texture with deep red tones.       |
-| **Genome**           | Cute, plump shape with bold black outlines and flat coloring.  |
-| **Classic**          | Traditional flat, vanilla-style colors matching the base game. |
+## ✨ Key Features
 
-## Features
+* **🌱 New Fruit Tree:** The **Cosmic Crisp Sapling**.
+  * *Growth:* Takes **28 days** to mature (standard fruit tree rules).
+  * *Season:* Bears fruit in **Fall**.
+* **📈 Dynamic Economy:**
+  * **Fall (Peak Season):** Apples sell for **500g** each.
+  * **Off-Season:** Price crashes to **2g** (shelf-stable, but worthless).
+* **🎨 Zero-Bloat Art Engine:**
+  * This mod contains **no image files**.
+  * All textures are **procedurally generated** by Python code when you install or build the mod.
+  * Choose from 3 unique aesthetic styles (Realistic, Cute, or Classic).
 
-* **New Tree:** Cosmic Crisp Sapling (Buy at Pierre's in Fall).
-* **Dynamic Pricing:** * **Fall:** 500g (High Demand)
-    * **Spring/Summer/Winter:** 2g (Market Crash)
-* **Growth:** Takes 28 days to mature (standard Fruit Tree).
+---
 
-## Requirements
+## 📥 Installation
+
+### For Players (Standard Install)
+1.  Download the latest `.zip` from the **[Releases](https://github.com/eCHOMP/CosmicCrispMod/releases)** page.
+2.  Unzip the folder.
+3.  Drag the `eCHOMP_CosmicCrisp` folder into your Stardew Valley `Mods` folder.
+4.  Run the game!
+
+### For Developers (Manual Build)
+If you want to modify the code or generate the art yourself:
+
+1.  **Clone the Repo:**
+    ```bash
+    git clone [https://github.com/eCHOMP/CosmicCrispMod.git](https://github.com/eCHOMP/CosmicCrispMod.git)
+    cd CosmicCrispMod
+    ```
+2.  **Generate Assets:**
+    ```bash
+    pip install Pillow
+    python generate_assets.py
+    ```
+3.  **Link to Game:**
+    ```bash
+    python setup_link.py
+    ```
+
+---
+
+## 🎨 Art Styles & Configuration
+
+You can switch the visual style of the apples and trees at any time.
+* **Method 1:** Edit `config.json` in the mod folder.
+* **Method 2:** Use **Generic Mod Config Menu** in-game.
+
+| Style | Description |
+| :--- | :--- |
+| **Cosmic** (Default) | Modern, speckled, realistic texture with deep red tones. |
+| **Genome** | Cute, plump shape with bold black outlines and flat coloring. |
+| **Classic** | Traditional flat, vanilla-style colors matching the base game. |
+
+---
+
+## 🛠️ Testing & Debugging
+
+You don't need to wait 28 days to verify the mod works. Use the SMAPI Console commands below:
+
+**1. Verify Shop & Growth**
+```bash
+debug season fall
+```
+* **Check:** Go to Pierre's. He should sell "Cosmic Crisp Sapling" for **2000g**.
+* **Action:** Plant one. Hover over it and run `debug grow` ~4 times until mature.
+
+**2. Verify Market Boom (Fall)**
+```bash
+debug season fall
+```
+* **Check:** Harvest an apple. It should sell for **500g**.
+
+**3. Verify Market Crash (Spring/Summer/Winter)**
+```bash
+debug season spring
+```
+* **Check:** The same apple should now sell for only **2g**.
+
+---
+
+## 📋 Requirements
 
 * [Stardew Valley](https://www.stardewvalley.net/) (v1.6+)
 * [SMAPI](https://smapi.io/)
@@ -35,49 +100,6 @@ This mod produces zero asset bloat. All textures are procedurally generated on y
 
 ---
 
-## Developer Setup (For Contributors)
+## 📄 License
 
-### 1. Clone the Repo
-
-    git clone https://github.com/eCHOMP/CosmicCrispMod.git
-    cd CosmicCrispMod
-
-### 2. Link to Game
-
-    python3 setup_link.py
-
-*Follow the on-screen prompts.*
-
----
-
-## Testing & Debug Strategy
-
-### 1. Verify Shop & Growth
-
-Walk into Pierre's General Store.
-debug season fall
-
-* **Check:** Pierre should now sell "Cosmic Crisp Sapling" for 2000g.
-* **Action:** Buy one and plant it (requires 3x3 clear space).
-* **Fast Forward:** Hover over the sapling and type:
-  debug grow
-  *(Repeat ~4 times until it looks like a full tree).*
-
-### 2. Verify Harvest
-
-    debug season fall
-
-* **Check:** The tree should have an apple. Shake it to harvest.
-* **Check Price:** The apple should sell for **500g**.
-
-### 3. Verify Crash Price
-
-    debug season spring
-
-* **Check Price:** The apple should now sell for **2g**.
-
----
-
-## License
-
-MIT
+MIT © eCHOMP

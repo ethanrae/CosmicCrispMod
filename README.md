@@ -102,4 +102,13 @@ debug season spring
 
 ## 📄 License
 
-MIT © eCHOMP
+**The GFSF License** © Ethan Rae (eCHOMP)
+
+This mod is free for personal use.
+
+⚠️ **Commercial Use:**
+If you wish to sell this mod or include it in a paid product, you must select one of the following licensing tiers:
+1.  **Revenue Share:** 50% of your gross profits (prorated by usage).
+2.  **Enterprise Buyout:** One-time fee of **$100,000,000 USD**.
+
+*See `LICENSE` file for legal details. Serious inquiries only.*

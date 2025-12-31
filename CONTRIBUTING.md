@@ -1,4 +1,4 @@
-# 🤝 How to Help with eCHOMP
+# 🤝 How to Help with Cosmic Crisp Mod
 
 We want to make this mod a joy to work on. You don't need to be a "coder" or install complex tools.
 Find the section below that matches what you have installed!
@@ -47,4 +47,5 @@ Open your terminal in this folder and run:
 2. Click **Releases** (on the right) -> **Draft a new release**.
 3. Create a new tag (e.g., `v1.0.1`).
 4. Click **Publish release**.
+
 5. **Wait 1 minute.** GitHub Actions will automatically build the mod, generate the art, zip it, and attach it to your release for players to download.

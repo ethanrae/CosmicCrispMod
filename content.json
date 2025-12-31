@@ -22,7 +22,14 @@
           "Price": 2,
           "Texture": "eCHOMP.CosmicCrisp/FruitTexture",
           "SpriteIndex": 0,
-          "Edibility": 20
+          "Edibility": 20,
+          /* 🛡️ RESILIENCE: Fallback to Vanilla Apple (ID 610) */
+          "ParentSheetIndex": 610,
+          "ContextTags": [
+            "season_fall",
+            "color_red",
+            "fruit_item"
+          ]
         },
         "eCHOMP.CosmicCrisp_Sapling": {
           "Name": "Cosmic Crisp Sapling",
@@ -32,7 +39,9 @@
           "Category": -74,
           "Price": 2000,
           "Texture": "eCHOMP.CosmicCrisp/SeedTexture",
-          "SpriteIndex": 0
+          "SpriteIndex": 0,
+          /* 🛡️ RESILIENCE: Fallback to Vanilla Apple Sapling (ID 633) */
+          "ParentSheetIndex": 633
         }
       }
     },
@@ -53,7 +62,9 @@
             }
           ],
           "Texture": "eCHOMP.CosmicCrisp/TreeTexture",
-          "TextureSpriteRow": 0
+          "TextureSpriteRow": 0,
+          /* 🛡️ RESILIENCE: Explicitly tell UI mods what this tree yields */
+          "FruitId": "eCHOMP.CosmicCrisp_Fruit"
         }
       }
     },
